@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blind-Test Player · AI Crafters × SGTM</title>
+<link rel="stylesheet" href="player.css">
+</head>
+<body class="present-mode">
+<div class="app" id="app">
+  <header class="header">
+    <img src="assets/logo-ai-crafters.png" alt="AI Crafters" class="logo logo-l">
+    <div class="header-center">
+      <p class="eyebrow">Réveille ton Spark · Jour 3</p>
+      <h1>Blind-Test <span>Trends 2026</span></h1>
+    </div>
+    <img src="assets/logo-sgtm.png" alt="SGTM" class="logo logo-r">
+  </header>
+
+  <div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <h2>Playlist <span id="audioCount" class="count-badge">0/14</span></h2>
+      <button type="button" class="icon-btn" id="btnShuffle" title="Mélanger">🔀</button>
+    </div>
+    <div class="filters" id="filters"></div>
+    <ul class="track-list" id="trackList"></ul>
+    <label class="ghost-btn small file-label">
+      📁 Importer un MP3 pour cette manche
+      <input type="file" id="fileImport" accept="audio/*" hidden>
+    </label>
+  </aside>
+
+  <main class="stage">
+    <div class="scores" id="scores"></div>
+
+    <div class="mode-bar">
+      <span class="mode-label">Devine :</span>
+      <button type="button" class="mode-btn active" data-mode="titre">🎵 Le titre</button>
+      <button type="button" class="mode-btn" data-mode="artiste">🎤 L'artiste</button>
+      <button type="button" class="mode-btn" data-mode="lesdeux">🎯 Les deux (+2)</button>
+    </div>
+
+    <div class="player-card">
+      <audio id="audio" preload="auto"></audio>
+
+      <div class="vinyl-wrap" id="vinylWrap">
+        <div class="vinyl" id="vinyl">
+          <div class="vinyl-hole"></div>
+          <div class="vinyl-label">?</div>
+        </div>
+        <div class="bars" id="bars" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="round-meta">
+        <span class="cat-pill" id="catPill">TENDANCE</span>
+        <span class="round-num" id="roundNum">1 / 14</span>
+        <span class="mp3-status" id="mp3Status">MP3…</span>
+      </div>
+      <p class="trend-line" id="trendLine"></p>
+      <p class="indice" id="indice"></p>
+
+      <div class="timer-ring" id="timerRing">
+        <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-fg" id="ringFg" cx="60" cy="60" r="54"/></svg>
+        <div class="timer-digits" id="timerDigits">—</div>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <div class="controls">
+        <button type="button" class="ctrl prev" id="btnPrev">⏮</button>
+        <button type="button" class="ctrl play" id="btnPlay">▶ Jouer</button>
+        <button type="button" class="ctrl next" id="btnNext">⏭</button>
+      </div>
+
+      <div class="clip-btns">
+        <button type="button" class="clip" data-sec="3">3 sec</button>
+        <button type="button" class="clip active" data-sec="10">10 sec</button>
+        <button type="button" class="clip" data-sec="0">Entier</button>
+      </div>
+
+      <button type="button" class="reveal-btn" id="btnReveal">👁 Révéler la réponse</button>
+
+      <div class="answer hidden" id="answerBox">
+        <h2 id="ansTitle"></h2>
+        <p id="ansArtist"></p>
+        <p class="ans-note" id="ansNote"></p>
+        <span class="reel-pill" id="ansReel"></span>
+      </div>
+
+      <div class="team-row" id="teamRow"></div>
+    </div>
+  </main>
+  </div>
+
+  <footer class="footer">
+    <span>Réveille ton Spark · Blind-Test MP3</span>
+    <div class="footer-actions">
+      <button type="button" class="ghost-btn" id="btnFormateur" title="Afficher playlist + indices (formateur uniquement)">🎛 Formateur</button>
+      <button type="button" class="ghost-btn" id="btnFs">⛶ Plein écran</button>
+      <button type="button" class="ghost-btn" id="btnReset">↺ Reset scores</button>
+    </div>
+    <span>© AI Crafters 2026</span>
+  </footer>
+</div>
+
+<script src="tracks.js"></script>
+<script src="player.js"></script>
+</body>
+</html>
